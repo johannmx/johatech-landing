@@ -22,6 +22,11 @@ const PROFILE = {
       { name: 'Docker',     level: 90 },
       { name: 'Linux',      level: 86 },
     ],
+    'CI/CD': [
+      { name: 'Azure DevOps', level: 85 },
+      { name: 'GitLab',       level: 82 },
+      { name: 'Backstage',    level: 78 },
+    ],
     'Observability': [
       { name: 'Observability', level: 88 },
       { name: 'OpenTelemetry',  level: 72 },
@@ -30,11 +35,6 @@ const PROFILE = {
     'DevSecOps': [
       { name: 'Trivy',     level: 78 },
       { name: 'SonarQube', level: 76 },
-    ],
-    'CI/CD': [
-      { name: 'Azure DevOps', level: 85 },
-      { name: 'GitLab',       level: 82 },
-      { name: 'Backstage',    level: 78 },
     ],
     'Languages': [
       { name: 'Bash',   level: 86 },
@@ -50,9 +50,9 @@ export default function App () {
   const [openSkills, setOpenSkills] = useState(true)
   const [openCats, setOpenCats] = useState({
     'Platform': true,
-    'Observability': true,
-    'DevSecOps': false,
     'CI/CD': false,
+    'Observability': false,
+    'DevSecOps': false,
     'Languages': false
   })
 
