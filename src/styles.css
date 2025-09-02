@@ -38,3 +38,115 @@ h1{margin:8px 0 6px;letter-spacing:2px;font-weight:800}
 .chip{padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;background:#0c1422}
 
 .foot{margin-top:auto;padding:28px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
+
+/* Skills collapsible */
+.skills-toggle{
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:transparent;color:var(--text);border:1px solid var(--border);
+  padding:12px 14px;border-radius:12px;cursor:pointer;
+}
+.skills-toggle:hover{border-color:#2f7cf3}
+.chev{transition:transform .25s ease;opacity:.85}
+.chev.open{transform:rotate(180deg)}
+
+.skills-body{
+  overflow:hidden;max-height:0;transition:max-height .35s ease,padding .2s ease;
+  padding:0;
+}
+.skills-body.open{
+  max-height:1000px; /* suficiente para el contenido */
+  padding:12px 2px 4px;
+}
+
+.skill-row{margin:10px 0 14px}
+.skill-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.skill-name{font-weight:600}
+.skill-level{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+.bar{
+  position:relative;height:10px;border-radius:999px;overflow:hidden;
+  background:linear-gradient(180deg,#0e1422,#0a111c);border:1px solid var(--border);
+}
+.bar-fill{
+  height:100%;border-radius:999px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  box-shadow:0 0 16px rgba(47,124,243,.35) inset;
+  transition:width .6s ease;
+}
+
+/* Contenedor general (ya lo tenías) */
+.skills-toggle{
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:transparent;color:var(--text);border:1px solid var(--border);
+  padding:12px 14px;border-radius:12px;cursor:pointer;margin-bottom:8px;
+}
+.skills-toggle:hover{border-color:#2f7cf3}
+.chev{transition:transform .25s ease;opacity:.85}
+.chev.open{transform:rotate(180deg)}
+.skills-body{overflow:hidden;max-height:0;transition:max-height .35s ease,padding .2s ease;padding:0;}
+.skills-body.open{max-height:2000px;padding:12px 2px 4px;}
+
+/* Categorías */
+.skill-cat{border:1px solid var(--border);border-radius:12px;background:#0e1522;margin:10px 0;}
+.cat-toggle{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  background:transparent;color:var(--text);padding:12px 14px;border:none;cursor:pointer;
+}
+.cat-toggle:hover{color:#e9f1ff}
+.cat-body{overflow:hidden;max-height:0;transition:max-height .3s ease,padding .2s ease;padding:0 14px;}
+.cat-body.open{max-height:1000px;padding:0 14px 12px;}
+
+/* Filas y barras */
+.skill-row{margin:10px 0 14px}
+.skill-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.skill-name{font-weight:600}
+.skill-level{font-variant-numeric:tabular-nums;color:var(--muted)}
+.bar{position:relative;height:10px;border-radius:999px;overflow:hidden;background:linear-gradient(180deg,#0e1422,#0a111c);border:1px solid var(--border);}
+.bar-fill{
+  height:100%;border-radius:999px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  box-shadow:0 0 16px rgba(47,124,243,.35) inset;
+  transition:width .6s ease;
+}
+
+/* === Compact vertical skill bars + animation (fade-up + slide) === */
+.bars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:12px}
+.vitem{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transform:translateY(6px)}
+.cat-body.open .vitem{animation:fadeUp .35s var(--delay,0ms) ease-out forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.vbar{width:14px;height:96px;border:1px solid var(--border);border-radius:10px;background:linear-gradient(180deg,#0e1422,#0a111c);overflow:hidden;display:flex;align-items:flex-end}
+.vbar-fill{width:100%;height:0;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 0 10px rgba(47,124,243,.35) inset;transition:height .6s ease}
+.cat-body.open .vbar-fill{height:var(--level)}
+
+.vlabel{display:flex;flex-direction:column;align-items:center;gap:2px}
+.vname{font-size:12px;line-height:1.1;text-align:center;color:var(--text);opacity:.9;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vperc{font-size:11px;color:var(--muted)}
+
+/* === Horizontal skill bars (compact) + animation === */
+.hrows{display:flex;flex-direction:column;gap:10px}
+.hrow{opacity:0;transform:translateY(6px)}
+.cat-body.open .hrow{animation:hFadeUp .3s var(--delay,0ms) ease-out forwards}
+@keyframes hFadeUp{to{opacity:1;transform:translateY(0)}}
+
+.hmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.hname{font-weight:600}
+.hperc{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+.hbar{position:relative;height:12px;border-radius:999px;overflow:hidden;background:linear-gradient(180deg,#0f1522,#0b1220);border:1px solid rgba(148,163,184,.25)}
+.hbar-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 0 16px rgba(47,124,243,.35) inset;transition:width .6s ease}
+.cat-body.open .hbar-fill{width:var(--level)}
+
+/* === Normalize headings and skill text === */
+.card.skills .skills-toggle h2 {
+  font-size: 1.6rem; /* match About me title */
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.hname {
+  font-size: 1rem; /* bump skill name size */
+}
