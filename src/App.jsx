@@ -5,12 +5,12 @@ const PROFILE = {
   tagline: 'DevOps · SRE & Cloud Engineer',
   about:
     'Millennial techie, fan de Apple. Lidero prácticas de plataforma, DevSecOps y observabilidad. Enfoque en confiabilidad, automatización y buen DX. Apasionado por la innovación y el aprendizaje continuo.',
-  location: 'CABA, Argentina',
+  location: 'Buenos Aires, Argentina',
   emailPrimary: 'j@johatech.com',
   emailLab: 'dev@johatech.ar',
   socials: {
     github: 'https://github.com/johannmx',
-    linkedin: 'https://www.linkedin.com/in/johann.medina',
+    linkedin: 'https://www.linkedin.com/in/johannmedina',
     x: 'https://x.com/johannmx'
   },
   skills: [
