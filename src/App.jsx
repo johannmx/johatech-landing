@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 
 const PROFILE = {
   name: 'Johann Medina',
-  tagline: 'Líder DevOps · SRE & Cloud Engineer',
+  tagline: 'DevOps · SRE & Cloud Engineer',
   about:
     'Millennial techie, fan de Apple. Lidero prácticas de plataforma, DevSecOps y observabilidad. Enfoque en confiabilidad, automatización y buen DX. Apasionado por la innovación y el aprendizaje continuo.',
   location: 'CABA, Argentina',
   emailPrimary: 'j@johatech.com',
   emailLab: 'dev@johatech.ar',
   socials: {
-    github: 'https://github.com/johannmx,
+    github: 'https://github.com/johannmx',
     linkedin: 'https://www.linkedin.com/in/johann.medina',
     x: 'https://x.com/johannmx'
   },

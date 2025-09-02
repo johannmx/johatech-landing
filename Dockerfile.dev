@@ -1,0 +1,19 @@
+# Etapa de desarrollo con hot reload
+FROM node:20-alpine
+
+WORKDIR /app
+# Dependencias del sistema mínimas (opcional)
+RUN apk add --no-cache git
+
+# Instala deps primero para cachear
+COPY package.json package-lock.json* pnpm-lock.yaml* yarn.lock* ./
+RUN npm install
+
+# Copia el resto del código
+COPY . .
+
+# Expone el puerto de Vite
+EXPOSE 5173
+
+# Habilita host 0.0.0.0 para acceder desde tu LAN
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
