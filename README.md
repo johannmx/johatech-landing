@@ -1,6 +1,6 @@
 # JOHATECH Landing (Vite + React)
 
-Landing minimalista para `johatech.com`, lista para **Cloudflare Pages** (plan gratis).
+Landing minimalista para `johatech.com`, lista para **Cloudflare Pages** (plan gratis!).
 
 ## 🚀 Dev local
 ```bash
