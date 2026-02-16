@@ -1,5 +1,4 @@
 # JOHATECH Landing (Vite + React)
-# JOHATECH Landing (Vite + React)
 
 Landing minimalista para `johatech.com` preparada para desplegar en Vercel.
 
