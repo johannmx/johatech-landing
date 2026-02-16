@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
 
 const PROFILE = {
   name: 'Johann J. Medina F.',
@@ -171,6 +172,7 @@ export default function App () {
         <small>© {new Date().getFullYear()} Johatech · Built with ❤️</small>
       </footer>
       <SpeedInsights />
+      <Analytics />
     </div>
   )
 }
