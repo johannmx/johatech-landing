@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const PROFILE = {
   name: 'Johann J. Medina F.',
-  tagline: 'DevOps · SRE & Cloud Engineer',
+  tagline: 'Lead DevOps · SRE & Cloud Engineer',
   about:
     'Millennial techie, fan de Apple. Lidero prácticas de plataforma, DevSecOps y observabilidad. Enfoque en confiabilidad, automatización y buen DX. Apasionado por la innovación y el aprendizaje continuo.',
   location: 'Buenos Aires, Argentina',
