@@ -31,11 +31,24 @@ h1{margin:8px 0 6px;letter-spacing:2px;font-weight:800}
 
 .content{max-width:980px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
-.card h2{margin:0 0 8px}
-.muted{color:var(--muted)}
+.card h2{margin:0 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
 
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;background:#0c1422}
+/* Experience Styles */
+.exp-list { display: flex; flex-direction: column; gap: 24px; margin-top: 12px; }
+.exp-item { border-left: 2px solid var(--accent); padding-left: 20px; position: relative; }
+.exp-item::before { content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.exp-title h3 { margin: 0; font-size: 1.25rem; color: var(--text); }
+.exp-company { color: var(--accent); font-weight: 600; font-size: 1rem; }
+.exp-period { background: var(--border); padding: 4px 10px; border-radius: 8px; font-size: 0.85rem; color: var(--muted); }
+
+.exp-desc { margin-bottom: 12px; color: var(--text); opacity: 0.9; line-height: 1.5; }
+.exp-achievements { margin: 0 0 16px 0; padding-left: 18px; color: var(--muted); font-size: 0.95rem; }
+.exp-achievements li { margin-bottom: 6px; }
+
+.exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-chip { font-size: 0.75rem; background: rgba(47,124,243,0.1); border: 1px solid var(--accent); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-weight: 500; }
 
 .foot{margin-top:auto;padding:28px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
 

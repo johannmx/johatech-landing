@@ -58,6 +58,35 @@ export default function App () {
           <p className='muted'>{PROFILE.location} · {PROFILE.emailLab}</p>
         </section>
 
+        {/* Experience */}
+        <section className='card experience'>
+          <h2>Trayectoria & Logros</h2>
+          <div className='exp-list'>
+            {PROFILE.experience.map((exp, i) => (
+              <div key={i} className='exp-item'>
+                <div className='exp-header'>
+                  <div className='exp-title'>
+                    <h3>{exp.role}</h3>
+                    <span className='exp-company'>{exp.company}</span>
+                  </div>
+                  <span className='exp-period'>{exp.period}</span>
+                </div>
+                <p className='exp-desc'>{exp.description}</p>
+                <ul className='exp-achievements'>
+                  {exp.achievements.map((ach, j) => (
+                    <li key={j}>{ach}</li>
+                  ))}
+                </ul>
+                <div className='exp-tags'>
+                  {exp.tags.map((tag, k) => (
+                    <span key={k} className='tag-chip'>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Stack & Skills (collapsible with horizontal bars) */}
         <section className='card skills'>
           <button

@@ -39,6 +39,31 @@ export const PROFILE = {
       { name: 'Python', level: 72 },
     ],
   },
+  experience: [
+    {
+      role: 'Lead DevOps · SRE & Cloud Engineer',
+      company: 'Tu Empresa Actual',
+      period: '2022 — Presente',
+      description: 'Liderando la estrategia de plataforma y observabilidad. Implementación de arquitecturas Cloud Native y automatización de infraestructura.',
+      achievements: [
+        'Reducción de costos operativos en un 30% mediante optimización de recursos en Kubernetes.',
+        'Implementación de pipelines de CI/CD robustos con enfoque en DevSecOps.',
+        'Mejora de la observabilidad mediante OpenTelemetry y Grafana.'
+      ],
+      tags: ['Kubernetes', 'AWS', 'Terraform', 'OpenTelemetry']
+    },
+    {
+      role: 'SRE / Platform Engineer',
+      company: 'Empresa Anterior',
+      period: '2020 — 2022',
+      description: 'Gestión de infraestructura a gran escala y soporte a equipos de desarrollo para mejorar el DX (Developer Experience).',
+      achievements: [
+        'Migración exitosa de servicios legacy a contenedores.',
+        'Automatización total del aprovisionamiento de infraestructura con IaC.'
+      ],
+      tags: ['Docker', 'Azure', 'Ansible', 'Linux']
+    }
+  ]
 }
 
 export const sortByLevel = (arr) => [...arr].sort((a, b) => b.level - a.level)
