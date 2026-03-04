@@ -33,6 +33,21 @@ h1{margin:8px 0 6px;letter-spacing:2px;font-weight:800}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
 .card h2{margin:0 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
 
+/* Language Switcher */
+.lang-switcher {
+  position: absolute; top: 16px; right: 16px; 
+  display: flex; gap: 4px; background: var(--panel); 
+  border: 1px solid var(--border); padding: 4px; border-radius: 10px;
+  z-index: 100;
+}
+.lang-switcher button {
+  background: transparent; border: none; color: var(--muted);
+  padding: 4px 8px; border-radius: 6px; cursor: pointer;
+  font-size: 0.75rem; font-weight: 700; transition: all 0.2s;
+}
+.lang-switcher button.active { background: var(--accent); color: white; }
+.lang-switcher button:hover:not(.active) { color: var(--text); }
+
 /* Experience Styles */
 .exp-list { display: flex; flex-direction: column; gap: 24px; margin-top: 12px; }
 .exp-item { border-left: 2px solid var(--accent); padding-left: 20px; position: relative; }

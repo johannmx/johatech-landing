@@ -6,6 +6,7 @@ import {
 import { PROFILE, sortByLevel } from './data/profile'
 
 export default function App () {
+  const [lang, setLang] = useState('en')
   const [copied, setCopied] = useState(false)
   const [openSkills, setOpenSkills] = useState(true)
   const [openCats, setOpenCats] = useState({
@@ -16,8 +17,10 @@ export default function App () {
     'Languages': false
   })
 
+  const p = PROFILE[lang]
+
   const copyMail = async () => {
-    await navigator.clipboard.writeText(PROFILE.emailPrimary)
+    await navigator.clipboard.writeText(p.emailPrimary)
     setCopied(true)
     setTimeout(() => setCopied(false), 1200)
   }
@@ -28,6 +31,17 @@ export default function App () {
 
   return (
     <div className='page'>
+      <div className='lang-switcher btn-print'>
+        <button 
+          className={lang === 'en' ? 'active' : ''} 
+          onClick={() => setLang('en')}
+        >EN</button>
+        <button 
+          className={lang === 'es' ? 'active' : ''} 
+          onClick={() => setLang('es')}
+        >ES</button>
+      </div>
+
       {/* HERO */}
       <header className='hero'>
         <div className='logo'>
@@ -44,25 +58,25 @@ export default function App () {
           </svg>
         </div>
 
-        <h1>{PROFILE.name}</h1>
-        <p className='tag'>{PROFILE.tagline}</p>
+        <h1>{p.name}</h1>
+        <p className='tag'>{p.tagline}</p>
 
         <div className='cta'>
           <button onClick={copyMail} className='btn primary'>
             <Mail size={18} style={{marginRight: 8, verticalAlign: 'middle'}} />
-            {copied ? 'Copiado' : PROFILE.emailPrimary}
+            {copied ? p.ui.copy : p.emailPrimary}
           </button>
           <button onClick={handlePrint} className='btn ghost btn-print'>
             <Printer size={18} style={{marginRight: 8, verticalAlign: 'middle'}} />
-            Imprimir CV
+            {p.ui.print}
           </button>
-          <a className='btn ghost' href={PROFILE.socials.github} target='_blank' rel='noreferrer'>
+          <a className='btn ghost' href={p.socials.github} target='_blank' rel='noreferrer'>
             <Github size={18} />
           </a>
-          <a className='btn ghost' href={PROFILE.socials.linkedin} target='_blank' rel='noreferrer'>
+          <a className='btn ghost' href={p.socials.linkedin} target='_blank' rel='noreferrer'>
             <Linkedin size={18} />
           </a>
-          <a className='btn ghost' href={PROFILE.socials.x} target='_blank' rel='noreferrer'>
+          <a className='btn ghost' href={p.socials.x} target='_blank' rel='noreferrer'>
             <Twitter size={18} />
           </a>
         </div>
@@ -72,19 +86,19 @@ export default function App () {
       <main className='content'>
         {/* About */}
         <section className='card about'>
-          <h2><User size={20} style={{marginRight: 10}} /> About me</h2>
-          <p>{PROFILE.about}</p>
+          <h2><User size={20} style={{marginRight: 10}} /> {p.ui.about}</h2>
+          <p>{p.about}</p>
           <p className='muted'>
-            <MapPin size={14} style={{marginRight: 4, verticalAlign: 'middle'}} /> {PROFILE.location} · 
-            <Mail size={14} style={{marginLeft: 8, marginRight: 4, verticalAlign: 'middle'}} /> {PROFILE.emailLab}
+            <MapPin size={14} style={{marginRight: 4, verticalAlign: 'middle'}} /> {p.location} · 
+            <Mail size={14} style={{marginLeft: 8, marginRight: 4, verticalAlign: 'middle'}} /> {p.emailLab}
           </p>
         </section>
 
         {/* Experience */}
         <section className='card experience'>
-          <h2><Briefcase size={20} style={{marginRight: 10}} /> Trayectoria & Logros</h2>
+          <h2><Briefcase size={20} style={{marginRight: 10}} /> {p.ui.experience}</h2>
           <div className='exp-list'>
-            {PROFILE.experience.map((exp, i) => (
+            {p.experience.map((exp, i) => (
               <div key={i} className='exp-item'>
                 <div className='exp-header'>
                   <div className='exp-title'>
@@ -116,12 +130,12 @@ export default function App () {
             onClick={() => setOpenSkills(v => !v)}
             aria-expanded={openSkills}
           >
-            <h2><Layers size={20} style={{marginRight: 10}} /> Stack & Skills</h2>
+            <h2><Layers size={20} style={{marginRight: 10}} /> {p.ui.stack}</h2>
             <ChevronDown size={20} className={openSkills ? 'chev open' : 'chev'} />
           </button>
 
           <div className={openSkills ? 'skills-body open' : 'skills-body'}>
-            {Object.entries(PROFILE.skills).map(([cat, items]) => {
+            {Object.entries(p.skills).map(([cat, items]) => {
               const avg = Math.round(items.reduce((a, c) => a + c.level, 0) / items.length)
               return (
                 <div key={cat} className='skill-cat'>
@@ -140,7 +154,7 @@ export default function App () {
                         padding: '2px 8px',
                         borderRadius: '999px'
                       }}>
-                        {items.length} items · avg {avg}%
+                        {items.length} {p.ui.items} · {p.ui.avg} {avg}%
                       </span>
                     </span>
                     <ChevronDown size={18} className={openCats[cat] ? 'chev open' : 'chev'} />
