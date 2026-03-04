@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { 
   Mail, Github, Linkedin, Twitter, Printer, MapPin, 
   ChevronDown, Briefcase, Layers, User 
 } from 'lucide-react'
 import { PROFILE, sortByLevel } from './data/profile'
+
+// Import markdown content as strings
+import aboutEs from './content/es/about.md?raw'
+import aboutEn from './content/en/about.md?raw'
+
+const CONTENT_MAP = {
+  es: { about: aboutEs },
+  en: { about: aboutEn }
+}
 
 export default function App () {
   const [lang, setLang] = useState('en')
@@ -44,18 +54,20 @@ export default function App () {
 
       {/* HERO */}
       <header className='hero'>
-        <div className='logo'>
-          {/* J Mark */}
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' className='jmark'>
-            <rect rx='14' width='64' height='64' fill='url(#g)'/>
-            <path d='M38 14a2 2 0 0 1 2 2v20c0 8-6 14-14 14h-2a2 2 0 1 1 0-4h2c5.523 0 10-4.477 10-10V16a2 2 0 0 1 2-2Z' fill='white'/>
-            <defs>
-              <linearGradient id='g' x1='0' y1='0' x2='64' y2='64'>
-                <stop offset='0%' stopColor='#2F7CF3'/>
-                <stop offset='100%' stopColor='#0B3B91'/>
-              </linearGradient>
-            </defs>
-          </svg>
+        <div className='avatar-container'>
+          <img src='/profile.jpg' alt={p.name} className='profile-img' />
+          <div className='logo-badge'>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' className='jmark'>
+              <rect rx='14' width='64' height='64' fill='url(#g)'/>
+              <path d='M38 14a2 2 0 0 1 2 2v20c0 8-6 14-14 14h-2a2 2 0 1 1 0-4h2c5.523 0 10-4.477 10-10V16a2 2 0 0 1 2-2Z' fill='white'/>
+              <defs>
+                <linearGradient id='g' x1='0' y1='0' x2='64' y2='64'>
+                  <stop offset='0%' stopColor='#2F7CF3'/>
+                  <stop offset='100%' stopColor='#0B3B91'/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
         </div>
 
         <h1>{p.name}</h1>
@@ -87,7 +99,9 @@ export default function App () {
         {/* About */}
         <section className='card about'>
           <h2><User size={20} style={{marginRight: 10}} /> {p.ui.about}</h2>
-          <p>{p.about}</p>
+          <div className='markdown-content'>
+            <ReactMarkdown>{CONTENT_MAP[lang].about}</ReactMarkdown>
+          </div>
           <p className='muted'>
             <MapPin size={14} style={{marginRight: 4, verticalAlign: 'middle'}} /> {p.location} · 
             <Mail size={14} style={{marginLeft: 8, marginRight: 4, verticalAlign: 'middle'}} /> {p.emailLab}

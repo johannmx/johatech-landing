@@ -2,8 +2,6 @@ export const PROFILE = {
   en: {
     name: 'Johann J. Medina F.',
     tagline: 'Lead DevOps · SRE & Cloud Engineer',
-    about:
-      'Millennial techie, Apple fan. Leading platform practices, DevSecOps, and observability. Focused on reliability, automation, and great DX. Passionate about innovation and continuous learning.',
     location: 'Buenos Aires, Argentina',
     emailPrimary: 'j@johatech.com',
     emailLab: 'dev@johatech.ar',
@@ -77,8 +75,6 @@ export const PROFILE = {
   es: {
     name: 'Johann J. Medina F.',
     tagline: 'Lead DevOps · SRE & Cloud Engineer',
-    about:
-      'Millennial techie, fan de Apple. Lidero prácticas de plataforma, DevSecOps y observabilidad. Enfoque en confiabilidad, automatización y buen DX. Apasionado por la innovación y el aprendizaje continuo.',
     location: 'Buenos Aires, Argentina',
     emailPrimary: 'j@johatech.com',
     emailLab: 'dev@johatech.ar',
