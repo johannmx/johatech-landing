@@ -18,8 +18,38 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,s
   text-align:center;
   background: radial-gradient(60% 60% at 30% 20%, rgba(47,124,243,.25), transparent 60%);
 }
-.logo{display:flex;justify-content:center;margin-bottom:12px}
-.jmark{width:64px;height:64px;border-radius:16px;box-shadow:0 10px 30px rgba(47,124,243,.35)}
+.logo{display:flex;justify-content:center;margin-bottom:12px;position:relative}
+.avatar-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 16px;
+}
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--panel);
+  box-shadow: 0 0 0 2px var(--accent), 0 10px 30px rgba(47,124,243,0.3);
+}
+.logo-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 6px;
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.jmark{width:100%;height:100%;border-radius:8px;}
+
+/* Markdown styling adjustments */
+.markdown-content p { margin-bottom: 12px; line-height: 1.6; }
+.markdown-content p:last-child { margin-bottom: 0; }
 
 h1{margin:8px 0 6px;letter-spacing:2px;font-weight:800}
 .tag{margin:0 auto;max-width:740px;color:var(--muted)}
@@ -31,11 +61,68 @@ h1{margin:8px 0 6px;letter-spacing:2px;font-weight:800}
 
 .content{max-width:980px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
-.card h2{margin:0 0 8px}
-.muted{color:var(--muted)}
+.card h2{margin:0 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
 
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px;background:#0c1422}
+/* Language Switcher */
+.lang-switcher {
+  position: absolute; top: 16px; right: 16px; 
+  display: flex; gap: 4px; background: var(--panel); 
+  border: 1px solid var(--border); padding: 4px; border-radius: 10px;
+  z-index: 100;
+}
+.lang-switcher button {
+  background: transparent; border: none; color: var(--muted);
+  padding: 4px 8px; border-radius: 6px; cursor: pointer;
+  font-size: 0.75rem; font-weight: 700; transition: all 0.2s;
+}
+.lang-switcher button.active { background: var(--accent); color: white; }
+.lang-switcher button:hover:not(.active) { color: var(--text); }
+
+/* Experience Styles */
+.exp-list { display: flex; flex-direction: column; gap: 24px; margin-top: 12px; }
+.exp-item { border-left: 2px solid var(--accent); padding-left: 20px; position: relative; }
+.exp-item::before { content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.exp-title h3 { margin: 0; font-size: 1.25rem; color: var(--text); }
+.exp-company { color: var(--accent); font-weight: 600; font-size: 1rem; }
+.exp-period { background: var(--border); padding: 4px 10px; border-radius: 8px; font-size: 0.85rem; color: var(--muted); }
+
+.exp-desc { margin-bottom: 12px; color: var(--text); opacity: 0.9; line-height: 1.5; }
+.exp-achievements { margin: 0 0 16px 0; padding-left: 18px; color: var(--muted); font-size: 0.95rem; }
+.exp-achievements li { margin-bottom: 6px; }
+
+.exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-chip { font-size: 0.75rem; background: rgba(47,124,243,0.1); border: 1px solid var(--accent); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-weight: 500; }
+
+/* Resume / Print Styles */
+@media print {
+  @page { margin: 1.5cm; }
+  :root {
+    --bg: #ffffff;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #4b5563;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+  }
+  body { background: white; color: black; font-size: 11pt; }
+  .hero { background: none; padding: 0 0 20px 0; border-bottom: 2px solid var(--accent); }
+  .jmark { box-shadow: none; border: 1px solid #ddd; }
+  .btn, .skills-toggle, .cat-toggle svg, .foot, .btn-print { display: none !important; }
+  .cta { margin-top: 8px; }
+  .cta::after { content: "Email: j@johatech.com | LinkedIn: linkedin.com/in/johannmedina"; font-weight: bold; }
+  .content { display: block; max-width: 100%; margin: 0; padding: 0; }
+  .card { border: none; padding: 10px 0; margin-bottom: 10px; break-inside: avoid; }
+  .card h2 { font-size: 1.4rem; color: var(--accent); border-bottom: 2px solid var(--accent); }
+  .skills-body, .cat-body { max-height: none !important; padding: 10px 0 !important; display: block !important; opacity: 1 !important; }
+  .hbar { height: 8px; border: 1px solid #ddd; background: #f3f4f6; }
+  .hbar-fill { background: #2563eb !important; width: var(--level) !important; box-shadow: none !important; }
+  .hrow { opacity: 1 !important; transform: none !important; animation: none !important; margin-bottom: 12px; }
+  .exp-item { border-left: 2px solid #ddd; }
+  .exp-item::before { background: #2563eb; border: 2px solid white; }
+  .tag-chip { border: 1px solid #ddd; color: #444; background: #f9fafb; }
+}
 
 .foot{margin-top:auto;padding:28px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
 
