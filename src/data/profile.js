@@ -1,6 +1,6 @@
 export const PROFILE = {
   en: {
-    name: 'Johann J. Medina F.',
+    name: 'Johann Medina',
     tagline: 'Lead DevOps · SRE & Cloud Engineer',
     location: 'Buenos Aires, Argentina',
     emailPrimary: 'j@johatech.com',
@@ -49,31 +49,31 @@ export const PROFILE = {
     experience: [
       {
         role: 'Lead DevOps · SRE & Cloud Engineer',
-        company: 'Your Current Company',
-        period: '2022 — Present',
-        description: 'Leading platform strategy and observability. Implementing Cloud Native architectures and infrastructure automation.',
+        company: 'Mercantil Andina',
+        period: '2021 — Present',
+        description: 'Leading DevOps practices alongside the company\'s digital transformation, optimizing performance and time-to-market for cloud-based applications and APIs, delivering significant business value.',
         achievements: [
-          'Reduced operational costs by 30% through Kubernetes resource optimization.',
-          'Implemented robust CI/CD pipelines with a DevSecOps focus.',
-          'Improved observability using OpenTelemetry and Grafana.'
+          '100% migration to GitLab from Azure DevOps, significantly reducing operational costs.',
+          'Implemented robust CI/CD pipelines with a strong focus on DevSecOps.',
+          'Enhanced observability through OpenTelemetry and the Grafana Stack.'
         ],
-        tags: ['Kubernetes', 'AWS', 'Terraform', 'OpenTelemetry']
+        tags: ['Kubernetes', 'Azure', 'Terraform', 'OpenTelemetry']
       },
       {
-        role: 'SRE / Platform Engineer',
-        company: 'Previous Company',
-        period: '2020 — 2022',
-        description: 'Managing large-scale infrastructure and supporting development teams to improve DX (Developer Experience).',
+        role: 'DevOps · SRE & Cloud Engineer',
+        company: 'Mercantil Andina',
+        period: '2020 — 2021',
+        description: 'Leading DevOps culture in agile squads under microservices architecture on Azure. Specialist in AKS (Kubernetes) orchestration, container management (Docker, Helm), and designing complex CI/CD pipelines using Azure DevOps, Jenkins, and Spinnaker.',
         achievements: [
-          'Successful migration of legacy services to containers.',
-          'Total automation of infrastructure provisioning with IaC.'
+          'Migrated from Jenkins to Azure DevOps, achieving a 60% reduction in operational costs.',
+          'Implemented monitoring and observability under Dynatrace.'
         ],
-        tags: ['Docker', 'Azure', 'Ansible', 'Linux']
+        tags: ['Docker', 'Azure', 'Atlassian', 'Helm']
       }
     ]
   },
   es: {
-    name: 'Johann J. Medina F.',
+    name: 'Johann Medina',
     tagline: 'Lead DevOps · SRE & Cloud Engineer',
     location: 'Buenos Aires, Argentina',
     emailPrimary: 'j@johatech.com',
@@ -122,26 +122,26 @@ export const PROFILE = {
     experience: [
       {
         role: 'Lead DevOps · SRE & Cloud Engineer',
-        company: 'Tu Empresa Actual',
-        period: '2022 — Presente',
-        description: 'Liderando la estrategia de plataforma y observabilidad. Implementación de arquitecturas Cloud Native y automatización de infraestructura.',
+        company: 'Mercantil Andina',
+        period: '2021 — Presente',
+        description: 'Liderar la práctica DevOps, junto a la transformación digital de la empresa, optimizando el rendimiento y los tiempos de pasaje a producción de las aplicaciones y APIs en cloud, dándole valor al negocio.',
         achievements: [
-          'Reducción de costos operativos en un 30% mediante optimización de recursos en Kubernetes.',
+          'Migración a GitLab desde Azure DevOps en un 100% reduciendo considerablemente los costos operativos.',
           'Implementación de pipelines de CI/CD robustos con enfoque en DevSecOps.',
-          'Mejora de la observabilidad mediante OpenTelemetry y Grafana.'
+          'Mejora de la observabilidad mediante OpenTelemetry y Stack Grafana.'
         ],
-        tags: ['Kubernetes', 'AWS', 'Terraform', 'OpenTelemetry']
+        tags: ['Kubernetes', 'Azure', 'Terraform', 'Observabilidad']
       },
       {
-        role: 'SRE / Platform Engineer',
-        company: 'Empresa Anterior',
-        period: '2020 — 2022',
-        description: 'Gestión de infraestructura a gran escala y soporte a equipos de desarrollo para mejorar el DX (Developer Experience).',
+        role: 'DevOps · SRE & Cloud Engineer',
+        company: 'Mercantil Andina',
+        period: '2020 — 2021',
+        description: 'Liderazgo de la cultura DevOps en células ágiles bajo arquitectura de microservicios en Azure. Especialista en la orquestación con AKS (Kubernetes), gestión de contenedores (Docker, Helm) y diseño de pipelines complejos de CI/CD utilizando Azure DevOps, Jenkins y Spinnaker.',
         achievements: [
-          'Migración exitosa de servicios legacy a contenedores.',
-          'Automatización total del aprovisionamiento de infraestructura con IaC.'
+          'Migración de Jenkins a Azure DevOps, con reducción del 60% en costos operativos.',
+          'Implementación de monitoreo bajo Dynatrace'
         ],
-        tags: ['Docker', 'Azure', 'Ansible', 'Linux']
+        tags: ['Docker', 'Azure', 'Atlassian', 'HELM']
       }
     ]
   }
