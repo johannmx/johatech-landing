@@ -18,6 +18,10 @@ export default function App () {
     setTimeout(() => setCopied(false), 1200)
   }
 
+  const handlePrint = () => {
+    window.print()
+  }
+
   return (
     <div className='page'>
       {/* HERO */}
@@ -42,6 +46,9 @@ export default function App () {
         <div className='cta'>
           <button onClick={copyMail} className='btn primary'>
             {copied ? 'Copiado' : PROFILE.emailPrimary}
+          </button>
+          <button onClick={handlePrint} className='btn ghost btn-print'>
+            Imprimir CV
           </button>
           <a className='btn ghost' href={PROFILE.socials.github} target='_blank' rel='noreferrer'>GitHub</a>
           <a className='btn ghost' href={PROFILE.socials.linkedin} target='_blank' rel='noreferrer'>LinkedIn</a>

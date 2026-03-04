@@ -50,6 +50,35 @@ h1{margin:8px 0 6px;letter-spacing:2px;font-weight:800}
 .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag-chip { font-size: 0.75rem; background: rgba(47,124,243,0.1); border: 1px solid var(--accent); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-weight: 500; }
 
+/* Resume / Print Styles */
+@media print {
+  @page { margin: 1.5cm; }
+  :root {
+    --bg: #ffffff;
+    --panel: #ffffff;
+    --text: #000000;
+    --muted: #4b5563;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+  }
+  body { background: white; color: black; font-size: 11pt; }
+  .hero { background: none; padding: 0 0 20px 0; border-bottom: 2px solid var(--accent); }
+  .jmark { box-shadow: none; border: 1px solid #ddd; }
+  .btn, .skills-toggle, .cat-toggle svg, .foot, .btn-print { display: none !important; }
+  .cta { margin-top: 8px; }
+  .cta::after { content: "Email: j@johatech.com | LinkedIn: linkedin.com/in/johannmedina"; font-weight: bold; }
+  .content { display: block; max-width: 100%; margin: 0; padding: 0; }
+  .card { border: none; padding: 10px 0; margin-bottom: 10px; break-inside: avoid; }
+  .card h2 { font-size: 1.4rem; color: var(--accent); border-bottom: 2px solid var(--accent); }
+  .skills-body, .cat-body { max-height: none !important; padding: 10px 0 !important; display: block !important; opacity: 1 !important; }
+  .hbar { height: 8px; border: 1px solid #ddd; background: #f3f4f6; }
+  .hbar-fill { background: #2563eb !important; width: var(--level) !important; box-shadow: none !important; }
+  .hrow { opacity: 1 !important; transform: none !important; animation: none !important; margin-bottom: 12px; }
+  .exp-item { border-left: 2px solid #ddd; }
+  .exp-item::before { background: #2563eb; border: 2px solid white; }
+  .tag-chip { border: 1px solid #ddd; color: #444; background: #f9fafb; }
+}
+
 .foot{margin-top:auto;padding:28px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
 
 /* Skills collapsible */
