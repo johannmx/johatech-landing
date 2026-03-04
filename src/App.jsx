@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
 import { 
   Mail, Github, Linkedin, Twitter, Printer, MapPin, 
   ChevronDown, Briefcase, Layers, User 
@@ -200,6 +202,8 @@ export default function App () {
       <footer className='foot'>
         <small>© {new Date().getFullYear()} Johatech · Built with ❤️</small>
       </footer>
+      <SpeedInsights />
+      <Analytics />
     </div>
   )
 }
