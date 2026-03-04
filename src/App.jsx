@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import { 
+  Mail, Github, Linkedin, Twitter, Printer, MapPin, 
+  ChevronDown, Briefcase, Layers, User 
+} from 'lucide-react'
 import { PROFILE, sortByLevel } from './data/profile'
 
 export default function App () {
@@ -45,14 +49,22 @@ export default function App () {
 
         <div className='cta'>
           <button onClick={copyMail} className='btn primary'>
+            <Mail size={18} style={{marginRight: 8, verticalAlign: 'middle'}} />
             {copied ? 'Copiado' : PROFILE.emailPrimary}
           </button>
           <button onClick={handlePrint} className='btn ghost btn-print'>
+            <Printer size={18} style={{marginRight: 8, verticalAlign: 'middle'}} />
             Imprimir CV
           </button>
-          <a className='btn ghost' href={PROFILE.socials.github} target='_blank' rel='noreferrer'>GitHub</a>
-          <a className='btn ghost' href={PROFILE.socials.linkedin} target='_blank' rel='noreferrer'>LinkedIn</a>
-          <a className='btn ghost' href={PROFILE.socials.x} target='_blank' rel='noreferrer'>X</a>
+          <a className='btn ghost' href={PROFILE.socials.github} target='_blank' rel='noreferrer'>
+            <Github size={18} />
+          </a>
+          <a className='btn ghost' href={PROFILE.socials.linkedin} target='_blank' rel='noreferrer'>
+            <Linkedin size={18} />
+          </a>
+          <a className='btn ghost' href={PROFILE.socials.x} target='_blank' rel='noreferrer'>
+            <Twitter size={18} />
+          </a>
         </div>
       </header>
 
@@ -60,14 +72,17 @@ export default function App () {
       <main className='content'>
         {/* About */}
         <section className='card about'>
-          <h2>About me</h2>
+          <h2><User size={20} style={{marginRight: 10}} /> About me</h2>
           <p>{PROFILE.about}</p>
-          <p className='muted'>{PROFILE.location} · {PROFILE.emailLab}</p>
+          <p className='muted'>
+            <MapPin size={14} style={{marginRight: 4, verticalAlign: 'middle'}} /> {PROFILE.location} · 
+            <Mail size={14} style={{marginLeft: 8, marginRight: 4, verticalAlign: 'middle'}} /> {PROFILE.emailLab}
+          </p>
         </section>
 
         {/* Experience */}
         <section className='card experience'>
-          <h2>Trayectoria & Logros</h2>
+          <h2><Briefcase size={20} style={{marginRight: 10}} /> Trayectoria & Logros</h2>
           <div className='exp-list'>
             {PROFILE.experience.map((exp, i) => (
               <div key={i} className='exp-item'>
@@ -101,10 +116,8 @@ export default function App () {
             onClick={() => setOpenSkills(v => !v)}
             aria-expanded={openSkills}
           >
-            <h2>Stack & Skills</h2>
-            <svg width='18' height='18' viewBox='0 0 24 24' className={openSkills ? 'chev open' : 'chev'}>
-              <path fill='currentColor' d='M7 10l5 5 5-5z'/>
-            </svg>
+            <h2><Layers size={20} style={{marginRight: 10}} /> Stack & Skills</h2>
+            <ChevronDown size={20} className={openSkills ? 'chev open' : 'chev'} />
           </button>
 
           <div className={openSkills ? 'skills-body open' : 'skills-body'}>
@@ -130,9 +143,7 @@ export default function App () {
                         {items.length} items · avg {avg}%
                       </span>
                     </span>
-                    <svg width='16' height='16' viewBox='0 0 24 24' className={openCats[cat] ? 'chev open' : 'chev'}>
-                      <path fill='currentColor' d='M7 10l5 5 5-5z'/>
-                    </svg>
+                    <ChevronDown size={18} className={openCats[cat] ? 'chev open' : 'chev'} />
                   </button>
 
                   <div className={openCats[cat] ? 'cat-body open' : 'cat-body'}>
