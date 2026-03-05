@@ -1,0 +1,5 @@
+{
+  "git": {
+    "ignoreBuildStep": "bash ignore-step.sh"
+  }
+}
