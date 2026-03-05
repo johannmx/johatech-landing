@@ -1,118 +1,64 @@
 # JOHATECH Landing (Vite + React)
 
-Landing minimalista para `johatech.com` preparada para desplegar en Vercel.
+Una landing page minimalista, profesional y altamente personalizable, diseñada para actuar como tarjeta de presentación y currículum online. Construida con **Vite**, **React** y **Lucide React**.
 
-## Requisitos
-- Node.js (>=16) y npm/Yarn/PNPM
-- Cuenta en Vercel (https://vercel.com)
+## 🚀 Características principales
+- **Multi-idioma nativo:** Soporte para Inglés (EN) y Español (ES).
+- **Contenido centralizado:** Personalización sencilla desde un único archivo de configuración.
+- **Markdown Ready:** Sección "Sobre mí" gestionada a través de archivos `.md`.
+- **Optimizado para Impresión:** Diseño adaptado para generar un CV limpio al imprimir (Ctrl+P).
+- **Performance:** Integración con Vercel Analytics y Speed Insights.
+- **Docker Ready:** Entorno de desarrollo contenedorizado incluido.
 
-## Instalación
+## 🛠️ Requisitos
+- **Node.js** (versión 18 o superior recomendada)
+- **npm**, **yarn** o **pnpm**
+
+## 🏁 Inicio Rápido
+
+### 1. Clonar y configurar
 ```bash
-git clone https://github.com/johannmx/johatech-landing.git
+git clone https://github.com/tu-usuario/johatech-landing.git
 cd johatech-landing
 npm install
 ```
 
-## Desarrollo local
+### 2. Desarrollo local
 ```bash
 npm run dev
-# abre http://localhost:5173 por defecto
+# Accede a http://localhost:5173
 ```
 
-## Build y preview
+### 3. Desarrollo con Docker
+Si prefieres no instalar dependencias localmente:
 ```bash
-npm run build
-npm run preview
+docker-compose -f docker-compose.dev.yml up
 ```
 
-El build de producción se genera en `dist/`.
+## 🎨 Personalización (¡Hazlo tuyo!)
 
-## Despliegue en Vercel (recomendado)
+Para adaptar este repositorio a tu perfil, solo necesitas modificar estos archivos:
 
-Opción A — Deploy automático (recomendado)
-- 1. Subí el repo a GitHub (o conecta tu Git provider con Vercel).
-- 2. En Vercel, crea un nuevo proyecto y conecta el repositorio.
-- 3. En la configuración de Build & Output Settings usa:
-	- Build Command: `npm run build`
-	# Plantilla: Sitio Vite + React (para desplegar en Vercel)
+1. **Datos del Perfil:** Edita `src/data/profile.js`. Aquí puedes cambiar tu nombre, redes sociales, experiencia laboral y habilidades (skills) tanto para la versión en inglés como en español.
+2. **Sección "Sobre mí":** Modifica los archivos en `src/content/en/about.md` y `src/content/es/about.md`.
+3. **Imagen de Perfil:** Reemplaza el archivo `public/profile.jpg` con tu propia foto.
+4. **Favicon:** Actualiza `public/favicon.svg` o `index.html`.
 
-	Este documento es una guía paso a paso y neutral para desplegar una aplicación creada con Vite + React en Vercel. Está pensado como plantilla que podés compartir con otra persona sin información específica del proyecto.
+## 📦 Despliegue
 
-	## 1) Requisitos
-	- Node.js (versión LTS recomendada)
-	- Un gestor de paquetes: `npm`, `yarn` o `pnpm`
-	- Cuenta en Vercel (opcional si sólo querés generar el build localmente)
+### En Vercel (Recomendado)
+El proyecto está optimizado para Vercel. Solo conecta tu repositorio a un nuevo proyecto en el panel de Vercel y se detectará automáticamente la configuración de Vite.
 
-	## 2) Preparar el proyecto (rápido)
-	1. Cloná o copiá el repositorio al equipo (reemplazá los placeholders):
+### En Cloudflare Pages
+Consulta el archivo [README-Cloudflare.md](./README-Cloudflare.md) para instrucciones específicas.
 
-	```bash
-	# Reemplazá <repo-url> por la URL de tu repositorio
-	git clone <repo-url>
-	cd <repo-directory>
-	npm install
-	```
+## 🤝 Contribuir o hacer Fork
+¡Los forks son bienvenidos! Siéntete libre de usar este código para tu propio sitio personal. 
+1. Haz un **Fork** del proyecto.
+2. Crea tu **Branch de característica** (`git checkout -b feature/AmazingFeature`).
+3. Haz **Commit** de tus cambios (`git commit -m 'Add some AmazingFeature'`).
+4. Haz **Push** a la Branch (`git push origin feature/AmazingFeature`).
+5. Abre un **Pull Request**.
 
-	2. Para desarrollo local:
-
-	```bash
-	npm run dev
-	# normalmente abre en http://localhost:5173
-	```
-
-	3. Para generar el build de producción y probar el preview:
-
-	```bash
-	npm run build
-	npm run preview
-	```
-
-	El output de producción queda en la carpeta `dist/` por convención.
-
-	## 3) Despliegue en Vercel — paso a paso
-
-	Opción A — Deploy automático (desde Git, recomendado)
-	1. Subí el código a tu Git provider (GitHub, GitLab, Bitbucket).
-	2. En el panel de Vercel, crea un nuevo proyecto y seleccioná el repositorio.
-	3. En Build & Output Settings configura:
-	   - Build Command: `npm run build`
-	   - Output Directory: `dist`
-	4. Guardá y desplegá. Habilitá deploys automáticos si querés que cada push cree un nuevo despliegue.
-
-	Opción B — Deploy con Vercel CLI
-
-	```bash
-	npm i -g vercel
-	vercel       # conectar proyecto al equipo/organización
-	vercel --prod # desplegar a producción
-	```
-
-	Si usás la CLI, seguí el asistente y confirmá los mismos valores de build/output cuando se te pregunte.
-
-	## 4) Configuración útil en Vercel
-	- Variables de entorno: Panel → Settings → Environment Variables. Añadilas para secretos o claves.
-	- Dominio personalizado: Panel → Domains. Seguí las instrucciones de Vercel para añadir registros DNS en tu proveedor.
-	- Fallback para SPA (rutas del cliente): si tu app usa rutas del lado cliente, añadir un `vercel.json` con un rewrite evita 404s.
-
-	Ejemplo de `vercel.json` (colocar en la raíz del repo):
-
-	```json
-	{
-	  "rewrites": [
-	    { "source": "/(.*)", "destination": "/index.html" }
-	  ]
-	}
-	```
-
-	> Nota: crear este archivo solo si tu aplicación necesita que todas las rutas sirvan `index.html`.
-
-	## 5) Personalización y contenido
-	- Editá `src/App.jsx` y `src/styles.css` para cambiar texto, enlaces y estilos.
-	- Añadí o actualizá `favicon.svg` y metadatos en `index.html` para mejorar SEO y apariencia.
-
-	## 6) Buenas prácticas (sugeridas)
-	- Mantener dependencias al mínimo y actualizar versiones regularmente.
-	- Usar variables de entorno para información sensible (API keys, tokens).
-	- Agregar `robots.txt` y etiquetas meta para SEO cuando corresponda.
-
-	---
+---
+*Built with ❤️ by [Johann Medina](https://johatech.com)*
